@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Assignment 8 Client Side Storage</title>
+	<script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+	<link rel="stylesheet" href="style.css"></link>
+	<script type="text/javascript">
+      $(document).ready(
+      function()
+      {
+   //      function guid() 
+   //       {
+ 		// 	function s4() {
+   //  			return Math.floor((1 + Math.random()) * 0x10000)
+   //    			.toString(16)
+   //    			.substring(1);
+  	// 		}
+  	// 		return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+   // 			s4() + '-' + s4() + s4() + s4();
+		 //  } 
+
+		 //  // var userName = $('.userName').val();
+		 //  // console.log(userName);
+		 //  var randNumb = guid();
+		 //  var setSesRandNumb = sessionStorage.setItem("sessionGuid", randNumb);
+		 //  var getSesRandNumb = sessionStorage.getItem( "sessionGuid" );
+		 //  console.log(getSesRandNumb);	  
+		 
+		 // $('#ps2').html(getSesRandNumb);
+      	});
+
+
+
+      $(function(){
+	$( "#saveButton" ).click(function() {
+  console.log("save button is clicked");
+  var inputValue1 = $('.userName').val();
+  var inputValue2 = $('#userBgColor').val();
+  console.log(inputValue1 + inputValue2);
+  localStorage.setItem('names', inputValue1);
+  localStorage.setItem('bgcolors', inputValue2);
+
+  var x = localStorage.getItem('names');
+  console.log(x);
+  var colorVal = localStorage.getItem('bgcolors');
+  console.log(colorVal);
+  $('#ps1').html(x);
+
+  	var colorOfBackground = document.getElementById('userBgColor');
+    document.getElementById("colorPicker").style.backgroundColor = colorVal;
+    localStorage.setItem("userBgColor" , colorOfBackground);
+
+
+    function guid() 
+         {
+ 			function s4() {
+    			return Math.floor((1 + Math.random()) * 0x10000)
+      			.toString(16)
+      			.substring(1);
+  			}
+  			return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+   			s4() + '-' + s4() + s4() + s4();
+		  } 
+
+		  // var userName = $('.userName').val();
+		  // console.log(userName);
+		  var randNumb = guid();
+		  var setSesRandNumb = sessionStorage.setItem("sessionGuid", randNumb);
+		  var getSesRandNumb = sessionStorage.getItem( "sessionGuid" );
+		  console.log(getSesRandNumb);	  
+		 
+		 $('#ps2').html(getSesRandNumb);
+  
+// function guid() {
+//   function s4() {
+//     return Math.floor((1 + Math.random()) * 0x10000)
+//       .toString(16)
+//       .substring(1);
+//   }
+//   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+//     s4() + '-' + s4() + s4() + s4();
+// }
+
+//console.log(guid());
+
+ // $('#ps').html(guid());
+
+	// $(window).bind('beforeunload',function(){
+ //    	console.log("you just refreshed the page");
+ //    	//return localStorage.getItem('name');
+	// });
+});
+
+
+
+  // $( window ).unload(function() {
+  // return "Bye now!";
+  // });
+  //var uuid = guid();
+  
+  //$('body').append('<span>' + x + '</span>');
+  //var userName = $('.userName').val();
+  });
+
+ //});
+	</script>
+</head>
+<body id="colorPicker">
+	<div>
+	<input class="userName" type="text" name="userName">
+	<input id="userBgColor" type="color">
+	<button id="saveButton">Save</button>
+	</div>
+	<footer>
+		<p>Hi!</p><p id="ps1"></p><p>Your Session GUID is : </p><p id="ps2"></p>
+	</footer>
+</body> 
+</html>
